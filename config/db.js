@@ -6,6 +6,7 @@ const connectDB = async () => {
 			useUnifiedTopology: true,
 			useNewUrlParser: true,
 			//useCreateIndex: true,
+			//MONGO_TEST for local host
 		})
 
 		console.log(`MongoDB connected: ${conn.connection.host}`)
