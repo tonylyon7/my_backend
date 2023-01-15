@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv"
 import cors from "cors"
 import morgan from "morgan"
-import path, { dirname } from "path"
+import path from "path"
 
 import { errorHandler } from "./middlewares/errorhandler.js";
 import user_router from "./routes/userroute.js";
@@ -16,24 +16,18 @@ import buyer_router from "./routes/buyerroute.js";
 import adminRouter from "./routes/superadminroute.js";
 // you must always add .JS to every importation from javascript
 
-const app = express()
-
-const __dirname = path.resolve()
-
-// for heroku
-// dotenv.config({path: "./config/config.env"})
-
-(dotenv).config({path: "./config/config.env"})
-
+dotenv.config({path: "./config/config.env"})
 connectDB().then()
+
+const app = express()
 
 app.use(morgan("dev"))
 app.use(cors())
 app.use(express.json())
 
-app.use("/public", express.static(path.join(__dirname, "public")))
-app.set("views", path.join(__dirname, "views"))
-app.set("view engine", "ejs")
+// app.use("/public", express.static(path.join(__dirname, "public")))
+// app.set("views", path.join(__dirname, "views"))
+// app.set("view engine", "ejs")
 
 app.use(errorHandler)
 app.use("/api/user", user_router)
