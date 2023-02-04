@@ -1,4 +1,4 @@
-import Joi from 'Joi'
+import Joi from 'joi'
 import validateRequest from './validate.js';
 
 const strongPasswordRegex = /^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[#?!@$%^&*-]).{8,}$/;
