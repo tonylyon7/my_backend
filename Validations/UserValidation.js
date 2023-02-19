@@ -17,8 +17,11 @@ export const signup = (req, res, next) => {
           'string.pattern.base': stringPassswordError,
         }),
         firstname: Joi.string().required().max(20).min(3).trim(),
+        middlename: Joi.string().required().max(20).min(3).trim(),
         lastname: Joi.string().required().max(20).min(3).trim(),
         phoneNumber: Joi.string().trim(),
+        address: Joi.string().required().trim(),
+        age: Joi.string().required().trim(),
         userType: Joi.string().valid('advertiser', 'affiliate')
       });
     validateRequest (req, next, schema)
